@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+.box:hover {
+    box-shadow: 2px 5px 10px rgba(0,0,0,0.5);
+    transition: box-shadow 0.3s ease-in-out;
+}
+*{
+  margin: 0;
+}
