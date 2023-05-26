@@ -10,6 +10,7 @@ import NotFound from './Component/NotFound/NotFound'
 import jwtDecode from 'jwt-decode'
 import ProtectedRoutes from './Component/protectedRoutes/protectedRoutes'
 import Product from './Component/Product/Product.jsx'
+import ProductDetails from './Component/ProductDetails/ProductDetails'
 
 
 
@@ -45,6 +46,12 @@ export default function App() {
           path: "cart", element:
             <ProtectedRoutes>
               <Cart />
+            </ProtectedRoutes>
+        },
+        {
+          path: "ProductDetails/:id", element:
+            <ProtectedRoutes>
+              <ProductDetails />
             </ProtectedRoutes>
         },
         {
