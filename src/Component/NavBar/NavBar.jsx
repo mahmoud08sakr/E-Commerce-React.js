@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './NavBar.module.css'
+import  styel from './NavBar.module.css'
 
 export default function NavBar({ userData, LogOut }) {
     return (
@@ -48,7 +48,7 @@ export default function NavBar({ userData, LogOut }) {
                                             {userData ? <li className="nav-item d-flex  justify-content-center align-content-center  ">
                                                 <div className=" d-flex align-content-between align-items-center ">
                                                     <i class="fa-solid fa-hands-clapping px-2 "></i>
-                                                    <p> HI {userData.name}</p>
+                                                    <p style={{margin : '0' , color:"gray" }} > HI {userData.name}</p>
                                                     <span className="nav-link active cursor-pointer  " onClick={LogOut} >Logout</span>
 
                                                 </div>
