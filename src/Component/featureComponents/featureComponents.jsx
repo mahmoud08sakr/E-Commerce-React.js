@@ -10,7 +10,7 @@ export default function FeatureComponents() {
 
     async function getProduct() {
         let data = await axios.get('https://route-ecommerce-app.vercel.app/api/v1/products')
-        console.log(data.data.data);
+        // console.log(data.data.data);
         setallProducts(data.data.data)
     }
 
