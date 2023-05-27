@@ -10,7 +10,7 @@ export default function Categoris() {
         infinite: true,
         speed: 500,
         slidesToShow: 6,
-        slidesToScroll: 1
+        slidesToScroll: 2
     };
 
     const [categores, setCategores] = useState([]);

@@ -40,7 +40,14 @@ export default function FeatureComponents() {
 
                                 </div>
                             </Link>
-                            <button className='btn btn-success w-100 text-white ' >+ Add </button>
+
+
+                            <div className="box-2">
+                                <div className="sakr sakr-two text-center  ">
+                                    <span>+ Add</span>
+                                </div>
+                            </div>
+
 
                         </div>
 

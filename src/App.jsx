@@ -11,6 +11,8 @@ import jwtDecode from 'jwt-decode'
 import ProtectedRoutes from './Component/protectedRoutes/protectedRoutes'
 import Product from './Component/Product/Product.jsx'
 import ProductDetails from './Component/ProductDetails/ProductDetails'
+import CounterContextProvider from './Context/CounterContext'
+
 
 
 
@@ -96,9 +98,11 @@ export default function App() {
 
 
 
-  return (
-    <RouterProvider router={routes} >
+  return <CounterContextProvider>
+      <RouterProvider router={routes} >
 
-    </RouterProvider>
-  )
+      </RouterProvider>
+    </CounterContextProvider>
+
+  
 }
