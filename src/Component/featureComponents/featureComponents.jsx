@@ -42,7 +42,7 @@ export default function FeatureComponents() {
                             </Link>
 
 
-                            <div className="box-2">
+                            <div className="box-2 overflow-hidden text-center ">
                                 <div className="sakr sakr-two text-center  ">
                                     <span>+ Add</span>
                                 </div>
