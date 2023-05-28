@@ -15,7 +15,7 @@ export default function FeatureComponents() {
         console.log(res, 'from fcomponent');
         console.log(res.data.status);
         if (res.data.status == "success") {
-            toast(res.data.message)
+            toast.success(res.data.message)
         }
     }
 
