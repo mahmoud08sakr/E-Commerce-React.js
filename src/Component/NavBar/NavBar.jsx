@@ -29,8 +29,6 @@ export default function NavBar({ userData, LogOut }) {
                                                     </Link>
                                                 </li><li className="nav-item">
                                                     <Link className="nav-link active" to={"about"}>About</Link>
-                                                </li> <li className="nav-item">
-                                                    <Link className="nav-link active" to={"cart"}>Cart</Link>
                                                 </li>
                                                 <li className="nav-item">
                                                     <Link className="nav-link active" to={"product"}>Product</Link>
