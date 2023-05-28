@@ -8,7 +8,7 @@ export default function Cart() {
 
     const [cartDetails, setCartDetails] = useState({})
 
-    let { getAllCart , updateCart } = useContext(CartContext)
+    let { getAllCart, updateCart, removeCartData } = useContext(CartContext)
 
 
     useEffect(() => {
@@ -26,8 +26,19 @@ export default function Cart() {
 
 
 
-    async function updateDetailscart(id , count) {
-        let res = await updateCart(id , count)
+    async function removeItem(id) {
+        let res = await removeCartData(id)
+        console.log(res);
+        setCartDetails(res.data)
+    }
+
+
+
+
+
+
+    async function updateDetailscart(id, count) {
+        let res = await updateCart(id, count)
         console.log(res);
         setCartDetails(res.data)
 
@@ -53,12 +64,15 @@ export default function Cart() {
                     </div>
                     <div className="col-md-10 d-flex justify-content-between ">
                         <div className="">    <h4>{product.product.title}</h4>
-                            <p className=' h3  mt-1 ' > Price: {product.price}</p></div>
+                            <p className=' h3  mt-1 ' > Price: {product.price}</p>
+                            <button onClick={() => removeItem(product.product._id)} className=' btn btn-outline-danger ' ><i className=' px-1   fa fa-trash' >
+                            </i>Remove</button>
+                        </div>
 
                         <div className="d-flex align-items-center ">
-                            <button className='btn btn-primary mx-2 ' onClick={()=> updateDetailscart(product.product._id , product.count+1) }  >+</button>
+                            <button className='btn btn-primary mx-2 ' onClick={() => updateDetailscart(product.product._id, product.count + 1)}  >+</button>
                             <p className='h3' >{product.count}</p>
-                            <button className='btn btn-danger mx-2 ' onClick={()=> updateDetailscart(product.product._id , product.count-1) }  >-</button>
+                            <button className='btn btn-danger mx-2 ' onClick={() => updateDetailscart(product.product._id, product.count - 1)}  >-</button>
 
 
                         </div>

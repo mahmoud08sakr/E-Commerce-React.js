@@ -60,11 +60,26 @@ export default function CartContextProvider(props) {
 
 
 
+    function removeCartData(id) {
+
+        return axios.delete(`https://route-ecommerce-app.vercel.app/api/v1/cart/${id}`, 
+            {
+                headers: {
+                    token: localStorage.getItem('userToken')
+                } 
+
+            }).then(res => res)
+            .catch(err => err)
+    }
+
+
+
+
 
 
 
     const [cart, setCart] = useState([])
-    return <CartContext.Provider value={{ cart, createCart, getAllCart ,updateCart}} >
+    return <CartContext.Provider value={{ cart, createCart, getAllCart ,updateCart ,removeCartData }} >
         {props.children}
     </CartContext.Provider>
 
