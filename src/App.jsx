@@ -88,7 +88,7 @@ export default function App() {
           path: "allorders", element:
 
             <ProtectedRoutes>
-              < AllOrder />I
+              < Home />I
             </ProtectedRoutes>
 
         },
