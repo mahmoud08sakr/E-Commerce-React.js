@@ -41,8 +41,30 @@ export default function CartContextProvider(props) {
             .catch(err => err)
     }
 
+
+
+
+
+    function updateCart(id, count) {
+
+        return axios.put(`https://route-ecommerce-app.vercel.app/api/v1/cart/${id}`, {count},
+            {
+                headers: {
+                    token: localStorage.getItem('userToken')
+                } 
+
+            }).then(res => res)
+            .catch(err => err)
+    }
+
+
+
+
+
+
+
     const [cart, setCart] = useState([])
-    return <CartContext.Provider value={{ cart, createCart, getAllCart }} >
+    return <CartContext.Provider value={{ cart, createCart, getAllCart ,updateCart}} >
         {props.children}
     </CartContext.Provider>
 
