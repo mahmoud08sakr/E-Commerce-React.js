@@ -10,6 +10,7 @@ export default function Categoris() {
     var settings = {
         dots: true,
         infinite: true,
+        button:false,
         speed: 500,
         slidesToShow: 6,
         slidesToScroll: 2
@@ -28,7 +29,7 @@ export default function Categoris() {
     }, [])
     return (
         <>
-            <Slider {...settings}>
+            <Slider className='widthoo'  {...settings}>
                 {categores.map((category) => <div className='bg-dark text-white' key={category} >
 
                     <img  height={300}  className='w-100'  src={category.image} alt="" />

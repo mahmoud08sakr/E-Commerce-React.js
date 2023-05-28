@@ -10,7 +10,11 @@ import video from '../video/IBQ7ISUBQHLH9P5W.mp4'
 
 
 export default function Login({ saveUserData }) {
+
+
     const [isLoading, setisLoding] = useState(false);
+
+
     const [errorMessage, setErrorMessage] = useState(null);
 
 
@@ -23,6 +27,7 @@ export default function Login({ saveUserData }) {
         let data = await axios.post('https://route-ecommerce-app.vercel.app/api/v1/auth/signin', values).catch((err) => {
 
             setisLoding(false);
+            console.log(data);
 
             setErrorMessage(err.response.data.message)
         })

@@ -4,29 +4,34 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../Context/CartContext';
 import toast from 'react-hot-toast';
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 
 
 export default function FeatureComponents() {
 
-    let { createCart } = useContext(CartContext)
+
+
+
+
+    let { createCart , setCartItem } = useContext(CartContext)
 
     async function generateCart(productId) {
         let res = await createCart(productId)
         console.log(res, 'from fcomponent');
         console.log(res.data.status);
         if (res.data.status == "success") {
-            toast.success(res.data.message ,
+            toast.success(res.data.message,
                 {
-                    position:'bottom-right',
-                    className:'box-shadow  '
+                    position: 'bottom-right',
+                    className: 'box-shadow  '
                 })
-        }else{
-            toast.error(res.data.message ,
+                setCartItem(res.data.numOfCartItems)
+        } else {
+            toast.error(res.data.message,
                 {
-                    position:'bottom-right',
-                    className:'box-shadow  '
+                    position: 'bottom-right',
+                    className: 'box-shadow  '
                 })
         }
     }
@@ -55,7 +60,7 @@ export default function FeatureComponents() {
         <>
 
 
-<Helmet>
+            <Helmet>
                 <meta charSet="utf-8" />
                 <title>Home </title>
             </Helmet>

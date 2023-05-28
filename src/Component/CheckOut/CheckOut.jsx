@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styel from './CheckOut.module.css'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -24,7 +24,7 @@ export default function CheckOut() {
         console.log(values);
 
 
-
+        
         let res = await getAllCart()
         console.log();
 

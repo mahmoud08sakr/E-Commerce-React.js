@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const { createContext } = require("react");
 
@@ -13,6 +13,27 @@ export let CartContext = createContext(0)
 
 
 export default function CartContextProvider(props) {
+
+
+    const [numOfCartItems , setCartItem] = useState(0)
+    const [cartID , setCartID] = useState(null)
+
+
+
+useEffect(()=>{
+    getInitialValue()
+},[])
+
+
+    async function getInitialValue() {
+        let {data} = await getAllCart();
+        console.log(data ,'from 7anaka');
+        console.log(data.data._id , data.numOfCartItems ,'sakoor' )  ;
+        if(data.status == 'success'){
+        setCartItem(data.numOfCartItems)
+        setCartID(data.data._id)
+        }
+    }
 
 
 
@@ -109,7 +130,7 @@ export default function CartContextProvider(props) {
 
 
     const [cart, setCart] = useState([])
-    return <CartContext.Provider value={{ cart, createCart, getAllCart, updateCart, removeCartData, clearCart ,generateOnlinePayment }} >
+    return <CartContext.Provider value={{ setCartItem ,numOfCartItems , cartID ,cart, createCart, getAllCart, updateCart, removeCartData, clearCart, generateOnlinePayment }} >
         {props.children}
     </CartContext.Provider>
 

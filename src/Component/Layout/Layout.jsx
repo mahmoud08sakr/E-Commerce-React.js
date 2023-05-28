@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Layout.module.css'
 import NavBar from '../NavBar/NavBar'
 import Footer from '../Footer/Footer'
 import { Outlet, useNavigate } from 'react-router-dom'
 
 
-export default function Layout({userData ,setUserData }) {
+export default function Layout({ userData, setUserData }) {
+
+
+
+    let userdata = localStorage.getItem('userToken')
+
+ 
 
 
     let navigate = useNavigate()
@@ -23,7 +29,7 @@ export default function Layout({userData ,setUserData }) {
     return (
         <div>
             <>
-                <NavBar userData={userData} LogOut={LogOut} />
+                <NavBar userData={userData} LogOut={LogOut} userdata={userdata} />
                 <Outlet />
                 <Footer />
             </>
