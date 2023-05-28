@@ -13,7 +13,9 @@ export default function CheckOut() {
 
 
 
-    let { generateOnlinePayment } = useContext(CartContext)
+    let { generateOnlinePayment, getAllCart } = useContext(CartContext)
+
+
 
 
 
@@ -21,11 +23,18 @@ export default function CheckOut() {
     async function HandelPayment(values) {
         console.log(values);
 
-        let {data} = await generateOnlinePayment('64738736d911f500084b5c20', values)
+
+
+        let res = await getAllCart()
+        console.log();
+
+
+
+        let { data } = await generateOnlinePayment(res.data.data._id, values)
         console.log(data);
-        if(data.session){
-            
-            window.location.href= data.session.url
+        if (data.session) {
+
+            window.location.href = data.session.url
         }
     }
 

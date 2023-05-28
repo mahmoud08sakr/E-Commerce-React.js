@@ -13,7 +13,7 @@ import Product from './Component/Product/Product.jsx'
 import ProductDetails from './Component/ProductDetails/ProductDetails'
 import CounterContextProvider from './Context/CounterContext'
 import CartContextProvider from './Context/CartContext'
-import allorders from './Component/allorders/allorders'
+import AllOrder from './Component/AllOrder/AllOrder'
 import CheckOut from './Component/CheckOut/CheckOut'
 import { Toaster } from 'react-hot-toast';
 
@@ -88,7 +88,7 @@ export default function App() {
           path: "allorders", element:
 
             <ProtectedRoutes>
-              < allorders />I
+              < AllOrder />I
             </ProtectedRoutes>
 
         },
