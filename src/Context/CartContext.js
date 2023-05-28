@@ -14,21 +14,35 @@ export let CartContext = createContext(0)
 
 export default function CartContextProvider(props) {
 
+
+
+    function getAllCart() {
+        return axios.get('https://route-ecommerce-app.vercel.app/api/v1/cart',
+            {
+                headers: {
+                    token: localStorage.getItem("userToken")
+                }
+            }).then(res => res)
+            .catch(err => err)
+
+    }
+
+
     function createCart(productId) {
         console.log(productId);
 
-    return    axios.post('https://route-ecommerce-app.vercel.app/api/v1/cart', { productId: productId },
+        return axios.post('https://route-ecommerce-app.vercel.app/api/v1/cart', { productId: productId },
             {
                 headers: {
                     token: localStorage.getItem('userToken')
                 }
 
             }).then(res => res)
-            .catch(err =>err )
+            .catch(err => err)
     }
 
     const [cart, setCart] = useState([])
-    return <CartContext.Provider value={{ cart, createCart }} >
+    return <CartContext.Provider value={{ cart, createCart, getAllCart }} >
         {props.children}
     </CartContext.Provider>
 

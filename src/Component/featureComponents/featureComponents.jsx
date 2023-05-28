@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-// import styles from './featureComponents.module.css'
+import styles from './featureComponents.module.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../Context/CartContext';
@@ -15,7 +15,17 @@ export default function FeatureComponents() {
         console.log(res, 'from fcomponent');
         console.log(res.data.status);
         if (res.data.status == "success") {
-            toast.success(res.data.message)
+            toast.success(res.data.message ,
+                {
+                    position:'bottom-right',
+                    className:'box-shadow  '
+                })
+        }else{
+            toast.error(res.data.message ,
+                {
+                    position:'bottom-right',
+                    className:'box-shadow  '
+                })
         }
     }
 
@@ -51,7 +61,7 @@ export default function FeatureComponents() {
                                 <p className='p-color'> {product.category.name}</p>
                                 <h3 className='h6' >{product.title.split(" ").splice(0, 2).join(" ")}</h3>
                                 <div className="d-flex justify-content-between ">
-                                    <p>{product.price}EGP</p>
+                                    <h6>{product.price}EGP</h6>
                                     <div className="d-flex">
                                         <h6>{product.ratingsAverage}</h6>
                                         <i className='fa fa-star text-warning ' ></i>

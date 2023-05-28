@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-// import styel from './categoris.module.css'
+import styel from './categoris.module.css'
 import Slider from "react-slick";
 import axios from 'axios';
 
@@ -30,7 +30,7 @@ export default function Categoris() {
                 {categores.map((category) => <div className='bg-dark text-white' key={category} >
 
                     <img  height={300}  className='w-100'  src={category.image} alt="" />
-                    <h3 className='h6' > {category.name} </h3>
+                    <h4 className='h6 ' > {category.name} </h4>
                 </div>
                 )}
             </Slider></>
