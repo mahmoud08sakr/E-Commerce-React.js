@@ -3,6 +3,9 @@ import './Cart.module.css';
 import { CartContext } from '../../Context/CartContext';
 import { Offline, Online } from "react-detect-offline";
 import { Helmet } from "react-helmet";
+import { Link } from 'react-router-dom';
+
+
 
 
 
@@ -12,7 +15,7 @@ export default function Cart() {
 
     const [cartDetails, setCartDetails] = useState({})
 
-    let { getAllCart, updateCart, removeCartData } = useContext(CartContext)
+    let { getAllCart, updateCart, removeCartData, clearCart } = useContext(CartContext)
 
 
     useEffect(() => {
@@ -44,7 +47,20 @@ export default function Cart() {
 
         }
 
+
+
+
+
     }
+
+
+    async function clearAllCart() {
+        let res = await clearCart()
+        setCartDetails()
+
+
+    }
+
 
 
 
@@ -83,6 +99,11 @@ export default function Cart() {
                     </div>
 
                 </div>)}
+                <div className=" d-flex align-items-center mt-5 ">
+                    <button onClick={() => clearAllCart()} className='btn btn-danger  w-25  mx-3 ' >Clear all</button>
+                    <Link to ={'/CheckOut'} className=' w-75 h-100 btn btn-outline-primary ' >Proceed to payment</Link>
+                </div>
+
             </div>}
 
 
