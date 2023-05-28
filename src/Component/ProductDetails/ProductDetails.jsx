@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 // import styel from './ProductDetails.module.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Slider from "react-slick";
+import { CartContext } from '../../Context/CartContext';
+
 
 export default function ProductDetails() {
+
+let {createCart} = useContext(CartContext)
+
     var settings = {
         dots: true,
         infinite: true,
@@ -52,7 +57,7 @@ export default function ProductDetails() {
                                 <i className='fa fa-star text-warning '></i>
                             </div>
                         </div>
-                        <button className='btn btn-success w-100 text-white mt-2'>+ Add</button>
+                        <button onClick={()=> createCart(id)}  className='btn btn-success w-100 text-white mt-2'>+ Add</button>
                     </div>
                 </div>
             </div>

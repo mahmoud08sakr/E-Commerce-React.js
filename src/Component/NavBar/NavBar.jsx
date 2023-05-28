@@ -1,13 +1,11 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import  styel from './NavBar.module.css'
-import {CounterContext} from '../../Context/CounterContext'
 
 export default function NavBar({ userData, LogOut }) {
 
 
-let {counter} = useContext(CounterContext)
-console.log(counter);
+
 
     return (
 
@@ -24,12 +22,10 @@ console.log(counter);
                                 <ul className="navbar-nav w-100 me-auto mb-2 mb-lg-0">
                                     <div className="d-flex w-100 justify-content-between flex-row  text-white  ">
 
-                                        <div className='d-flex align-items-center ' >
+                                        <div className='d-flex align-items-center ' >   
                                             {userData && <ul className='navbar-nav' >
                                                 <li className="nav-item ">
                                                     <Link className="nav-link active  " to={"home"}>Home
-                                                    
-                                                    <h2>{counter}</h2>
                                                     </Link>
                                                 </li><li className="nav-item">
                                                     <Link className="nav-link active" to={"about"}>About</Link>

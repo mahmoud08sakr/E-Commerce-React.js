@@ -1,13 +1,33 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 // import styles from './featureComponents.module.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../Context/CartContext';
+import toast from 'react-hot-toast';
+
 
 export default function FeatureComponents() {
+
+    let { createCart } = useContext(CartContext)
+
+    async function generateCart(productId) {
+        let res = await createCart(productId)
+        console.log(res, 'from fcomponent');
+        console.log(res.data.status);
+        if (res.data.status == "success") {
+            toast(res.data.message)
+        }
+    }
+
+
+
+
 
 
     // const [allProducts, setAllProducts] = useState([]);
     const [allProducts, setallProducts] = useState([]);
+
+
 
     async function getProduct() {
         let data = await axios.get('https://route-ecommerce-app.vercel.app/api/v1/products')
@@ -44,7 +64,8 @@ export default function FeatureComponents() {
 
                             <div className="box-2 overflow-hidden text-center ">
                                 <div className="sakr sakr-two text-center  ">
-                                    <span>+ Add</span>
+                                    <span onClick={() => generateCart(product.id)} >+ Add</span>
+
                                 </div>
                             </div>
 
