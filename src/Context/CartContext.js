@@ -15,25 +15,40 @@ export let CartContext = createContext(0)
 export default function CartContextProvider(props) {
 
 
-    const [numOfCartItems , setCartItem] = useState(0)
-    const [cartID , setCartID] = useState(null)
+    const [numOfCartItems, setCartItem] = useState(0)
+    const [cartID, setCartID] = useState(null)
 
 
 
-useEffect(()=>{
-    getInitialValue()
-},[])
+    useEffect(() => {
+        getInitialValue()
+    }, [])
+
+
+
+    // async function getuserDetails(id) {
+    //     let res = await axios.get(`https://route-ecommerce-app.vercel.app/api/v1/users/${id}`)
+    //     console.log(res);
+    // }
+
+
+
+
+
 
 
     async function getInitialValue() {
-        let {data} = await getAllCart();
-        console.log(data ,'from 7anaka');
-        console.log(data.data._id , data.numOfCartItems ,'sakoor' )  ;
-        if(data.status == 'success'){
-        setCartItem(data.numOfCartItems)
-        setCartID(data.data._id)
+        let { data } = await getAllCart();
+        console.log(data, 'from 7anaka');
+        console.log(data.data._id, data.numOfCartItems, 'sakoor');
+        if (data.status == 'success') {
+            setCartItem(data.numOfCartItems)
+            setCartID(data.data._id)
         }
     }
+
+
+
 
 
 
@@ -130,7 +145,7 @@ useEffect(()=>{
 
 
     const [cart, setCart] = useState([])
-    return <CartContext.Provider value={{ setCartItem ,numOfCartItems , cartID ,cart, createCart, getAllCart, updateCart, removeCartData, clearCart, generateOnlinePayment }} >
+    return <CartContext.Provider value={{  setCartItem, numOfCartItems, cartID, cart, createCart, getAllCart, updateCart, removeCartData, clearCart, generateOnlinePayment }} >
         {props.children}
     </CartContext.Provider>
 

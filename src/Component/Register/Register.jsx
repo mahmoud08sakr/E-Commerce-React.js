@@ -10,7 +10,7 @@ import {Helmet} from "react-helmet";
 export default function Register() {
     const [isLoading, setisLoding] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
-
+ 
 
 
     let navigate = useNavigate()
@@ -26,7 +26,7 @@ export default function Register() {
             setErrorMessage(err.response.data.message)
         })
         console.log(data);
-        console.log(values);
+        console.log(values.id);
         console.log(data.data.message);
         if (data.data.message == 'success') {
             setisLoding(false)

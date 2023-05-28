@@ -10,6 +10,7 @@ export default function Categoris() {
     var settings = {
         dots: true,
         infinite: true,
+        
         button:false,
         speed: 500,
         slidesToShow: 6,

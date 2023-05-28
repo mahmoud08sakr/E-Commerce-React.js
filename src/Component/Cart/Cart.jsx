@@ -26,6 +26,7 @@ export default function Cart() {
     async function getDetailscart() {
         let res = await getAllCart()
         console.log(res);
+
         setCartDetails(res.data)
         console.log(cartDetails.data.totalCartPrice);
     }
@@ -34,6 +35,8 @@ export default function Cart() {
     async function removeItem(id) {
         let res = await removeCartData(id)
         console.log(res);
+        localStorage.setItem("userID" , id )
+
         setCartDetails(res.data)
     }
 
@@ -41,6 +44,7 @@ export default function Cart() {
 
     async function updateDetailscart(id, count) {
         let res = await updateCart(id, count)
+        localStorage.setItem("userID" , id )
         console.log(res);
         setCartDetails(res.data)
         if (count >= 0) {

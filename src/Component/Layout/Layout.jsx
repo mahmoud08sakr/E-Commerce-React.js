@@ -8,10 +8,9 @@ import { Outlet, useNavigate } from 'react-router-dom'
 export default function Layout({ userData, setUserData }) {
 
 
-
     let userdata = localStorage.getItem('userToken')
 
- 
+
 
 
     let navigate = useNavigate()
