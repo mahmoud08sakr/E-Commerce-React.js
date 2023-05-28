@@ -1,6 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './Cart.module.css';
 import { CartContext } from '../../Context/CartContext';
+import { Offline, Online } from "react-detect-offline";
+import { Helmet } from "react-helmet";
+
+
 
 
 export default function Cart() {
@@ -24,8 +28,6 @@ export default function Cart() {
     }
 
 
-
-
     async function removeItem(id) {
         let res = await removeCartData(id)
         console.log(res);
@@ -34,13 +36,13 @@ export default function Cart() {
 
 
 
-
-
-
     async function updateDetailscart(id, count) {
         let res = await updateCart(id, count)
         console.log(res);
         setCartDetails(res.data)
+        if (count >= 0) {
+
+        }
 
     }
 
@@ -48,13 +50,15 @@ export default function Cart() {
 
 
 
-
-
-
-
-
     return (
         <>
+
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Cart</title>
+            </Helmet>
+
+            <Offline> <span className='networkStatus' >Only shown offline (surprise!)</span> </Offline>
             {cartDetails && cartDetails.data && <div className=" cartbg container py-5 my-5 px-5 ">
                 <h3>Cart Details</h3>
                 <h4>Total price: {cartDetails?.data?.totalCartPrice} </h4>

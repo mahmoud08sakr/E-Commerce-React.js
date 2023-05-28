@@ -91,6 +91,18 @@ code {
 
 
 
-.cartbg{
+.cartbg {
   background-color: rgb(255, 248, 240);
+}
+
+
+.networkStatus {
+  position: fixed;
+  bottom: 40px;
+  height: 40px;
+  right: 40px;
+  background-color: bisque;
+  text-align: center;
+  color: black;
+  border-radius: 10%;
 }

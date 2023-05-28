@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import  './Register.module.css'
+import './Register.module.css'
 import { Formik, useFormik, validateYupSchema } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {Helmet} from "react-helmet";
+
 
 export default function Register() {
     const [isLoading, setisLoding] = useState(false);
@@ -64,11 +66,17 @@ export default function Register() {
     return (
         <>
 
+
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Register</title>
+            </Helmet>
+
             <div className="container mt-5 ">
                 <h1>Register Now :</h1>
 
 
-                {errorMessage  ? <div className="alert alert-danger  "> {errorMessage} </div>: "" } 
+                {errorMessage ? <div className="alert alert-danger  "> {errorMessage} </div> : ""}
 
                 <form onSubmit={formik.handleSubmit}>
                     <label htmlFor="name">Name</label>

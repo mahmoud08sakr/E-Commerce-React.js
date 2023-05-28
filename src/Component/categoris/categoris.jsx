@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import styel from './categoris.module.css'
 import Slider from "react-slick";
 import axios from 'axios';
+import {Helmet} from "react-helmet";
+
 
 
 export default function Categoris() {

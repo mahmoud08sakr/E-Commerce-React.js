@@ -4,6 +4,8 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../Context/CartContext';
 import toast from 'react-hot-toast';
+import {Helmet} from "react-helmet";
+
 
 
 export default function FeatureComponents() {
@@ -51,6 +53,13 @@ export default function FeatureComponents() {
 
     return (
         <>
+
+
+<Helmet>
+                <meta charSet="utf-8" />
+                <title>Home </title>
+            </Helmet>
+
             <div className="container mt-5 pt-5 ">
                 <div className="row">
                     {allProducts.map((product) => <div key={product.id} className="col-md-2 box ">
