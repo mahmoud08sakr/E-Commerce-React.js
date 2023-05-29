@@ -11,6 +11,7 @@ const { createContext } = require("react");
 export let CartContext = createContext(0)
 
 
+const color = "#111111";
 
 export default function CartContextProvider(props) {
 

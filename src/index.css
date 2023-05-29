@@ -120,3 +120,17 @@ code {
 #black{
 background-color: darkcyan;
 }
+
+
+
+.slider{
+  background-color: antiquewhite;
+  
+}
+
+
+.animation{
+  margin-top: 12rem;
+  right:  10rem;
+  left: 9rem;
+}

@@ -26,7 +26,6 @@ export default function Cart() {
     async function getDetailscart() {
         let res = await getAllCart()
         console.log(res);
-
         setCartDetails(res.data)
         console.log(cartDetails.data.totalCartPrice);
     }

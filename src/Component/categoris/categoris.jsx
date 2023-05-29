@@ -53,10 +53,10 @@ export default function Categoris() {
     return (
         <>
             <Slider className='w-100  '  {...settings}>
-                {categores.map((category) => <div className='bg-dark text-white' key={category} >
+                {categores.map((category) => <div className=' slider text-white' key={category} >
 
-                    <img  height={300}  className='w-100'  src={category.image} alt="" />
-                    <h4 className='h6 ' > {category.name} </h4>
+                    <img  height={250}  className='w-75 rounded-3 mt-3   '  src={category.image} alt="" />
+                    <h4 className='h6 ps-5 ms-4 text-dark ' > {category.name} </h4>
                 </div>
                 )}
             </Slider></>
