@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import style from './NavBar.module.css';
 import { CartContext } from '../../Context/CartContext';
 
+
 export default function NavBar({ userdata, userData, LogOut }) {
     let { numOfCartItems } = useContext(CartContext);
+
+
 
     localStorage.setItem('userID', userData ? userData.id : '');
 
@@ -55,13 +58,15 @@ export default function NavBar({ userdata, userData, LogOut }) {
                                                             </span>
                                                         </div>
                                                     </li>
-                                                    <li className="nav-item">
+                                                    <li className="nav-item  d-flex  ">
                                                         <Link className="nav-link active" to={'/cart'}>
                                                             <i className="fa fa-shopping-cart"></i>
+
+
                                                             <div className="badge bg-success position-absolute top-0 end-1">
                                                                 {numOfCartItems}
                                                             </div>
-                                                        </Link>
+                                                        </Link> 
                                                     </li>
                                                 </>
                                             ) : (

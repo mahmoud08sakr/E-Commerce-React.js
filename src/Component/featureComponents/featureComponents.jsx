@@ -52,7 +52,11 @@ export default function FeatureComponents() {
                 <meta charSet="utf-8" />
                 <title>Home</title>
             </Helmet>
-            <div className="container mt-5 pt-5 ">
+
+
+
+            <div className="container-fluid "  id='' >
+                <div className="container mt-5    pt-5 ">
                 <div className="my-5">
                     <label htmlFor="search">Search:</label>
                     <input
@@ -89,7 +93,8 @@ export default function FeatureComponents() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div></div>
+
         </>
     );
 }

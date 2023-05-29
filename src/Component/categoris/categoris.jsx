@@ -7,14 +7,36 @@ import {Helmet} from "react-helmet";
 
 
 export default function Categoris() {
+
+
+
+
+    function SampleNextArrow(props) {
+        const { className, style, onClick } = props;
+    
+    return ;
+    
+    }
+
+
+
+
+
+
     var settings = {
         dots: true,
         infinite: true,
-        
         button:false,
+        autoplay: true,
         speed: 500,
         slidesToShow: 6,
-        slidesToScroll: 2
+        slidesToScroll: 2,
+        autoplaySpeed: 2000,
+        arrows:false,
+        nextArrow: <SampleNextArrow />,
+        cssEase: "linear"
+
+
     };
 
     const [categores, setCategores] = useState([]);
@@ -30,7 +52,7 @@ export default function Categoris() {
     }, [])
     return (
         <>
-            <Slider className='widthoo'  {...settings}>
+            <Slider className='w-100  '  {...settings}>
                 {categores.map((category) => <div className='bg-dark text-white' key={category} >
 
                     <img  height={300}  className='w-100'  src={category.image} alt="" />

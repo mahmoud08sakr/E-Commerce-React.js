@@ -6,7 +6,6 @@ import * as Yup from 'yup'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {Helmet} from "react-helmet";
-import video from '../video/IBQ7ISUBQHLH9P5W.mp4'
 
 
 export default function Login({ saveUserData }) {
@@ -70,19 +69,6 @@ export default function Login({ saveUserData }) {
 
     return (<>
     
-    <video 
-    
-    autoPlay
-    loop
-    muted
-    className='w-75 position-absolute  '
-    style={{
-        zIndex:'-1'
-    }}
-    >
-<source  src={video}  type='video/mp4' />
-
-    </video>
     
     <Helmet>
                 <meta charSet="utf-8" />
