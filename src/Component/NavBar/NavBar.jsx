@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import style from './NavBar.module.css';
+// import style from './NavBar.module.css';
 import { CartContext } from '../../Context/CartContext';
 import jwtDecode from 'jwt-decode'
 
@@ -10,13 +10,20 @@ export default function NavBar({ userdata, userData, LogOut }) {
     let { numOfCartItems } = useContext(CartContext);
 
 
+    var decoded;
 
-    let encode = localStorage.getItem("userToken")
-    // console.log(encode);
-    let decoded = jwtDecode(encode)
-    console.log(decoded);
+    if (localStorage.getItem("userToken")) {
+        
 
-    console.log(decoded.name);
+        let encode = localStorage.getItem("userToken")
+
+        decoded = jwtDecode(encode)
+        console.log(decoded);
+
+        console.log(decoded.name);
+
+    }
+
 
 
     localStorage.setItem('userID', userData ? userData.id : '');
@@ -62,7 +69,7 @@ export default function NavBar({ userdata, userData, LogOut }) {
                                                     <li className="nav-item d-flex justify-content-center align-content-center">
                                                         <div className="d-flex align-content-between align-items-center">
                                                             <i className="fa-solid fa-hands-clapping px-2"></i>
-                                                            <p style={{ margin: '0', color: 'gray' }}>HI {decoded.name} </p>
+                                                            <p style={{ margin: '0', color: 'gray' }}>HI {decoded.name ? decoded.name : ''  } </p>
                                                             <span className="nav-link active cursor-pointer" onClick={LogOut}>
                                                                 Logout
                                                             </span>
@@ -76,7 +83,7 @@ export default function NavBar({ userdata, userData, LogOut }) {
                                                             <div className="badge bg-success position-absolute top-0 end-1">
                                                                 {numOfCartItems}
                                                             </div>
-                                                        </Link> 
+                                                        </Link>
                                                     </li>
                                                 </>
                                             ) : (
