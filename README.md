@@ -44,9 +44,9 @@ This is an e-commerce application developed using HTML5, CSS3, JavaScript, Boots
 1. Clone the repository:
 
    ```
-   git clone https://github.com/mahmoud08sakr/e-commers.git 
+   git clone https://github.com/mahmoud08sakr/E-Commerce.git 
    
-   cd e-commers
+   cd E-Commerce
 
    npm install
    
