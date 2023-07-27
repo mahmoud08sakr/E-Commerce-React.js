@@ -1,8 +1,8 @@
 import React from 'react'
 import './Login.module.css'
 import { useState } from 'react'
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
+import { useFormik } from 'formik'              /**/ 
+import * as Yup from 'yup'                      /**/
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {Helmet} from "react-helmet";
@@ -23,7 +23,7 @@ export default function Login({ saveUserData }) {
     async function login(values) {
         setisLoding(true);
         setErrorMessage(null)
-        let data = await axios.post('https://route-ecommerce-app.vercel.app/api/v1/auth/signin', values).catch((err) => {
+        let data = await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin', values).catch((err) => {
 
             setisLoding(false);
             console.log(data);
@@ -45,16 +45,18 @@ export default function Login({ saveUserData }) {
 
 
 
-    let mySchema = Yup.object({
-        email: Yup.string().email("invalid email").required("required"),
-        password: Yup.string().matches(/^[A-Z][a-z0-9]{3,8}$/, "invalid password").required('required'),
+    let mySchema = Yup.object({                                                                 /**/
+        email: Yup.string().email("invalid email").required("required"),                        /**/
+
+
+        password: Yup.string().matches(/^[A-Z][a-z0-9]{3,8}$/, "invalid password").required('required'),            /**/
 
     })
 
 
 
 
-    let formik = useFormik({
+    let formik = useFormik({                    /**/
         initialValues: {
 
             email: '',
@@ -62,8 +64,8 @@ export default function Login({ saveUserData }) {
 
 
 
-        }, validationSchema: mySchema,
-        onSubmit: (values) => login(values)
+        }, validationSchema: mySchema,                      /**/
+        onSubmit: (values) => login(values)                 /**/
 
     })
 
@@ -90,7 +92,7 @@ export default function Login({ saveUserData }) {
                 <label htmlFor="email">email</label>
                 <input type="email" className='form-control mb-3 ' name='email' id='email' value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} />
 
-                {formik.errors.email && formik.touched.email ? <div className="alert alert-danger">{formik.errors.email}</div> : ''}
+                {formik.errors.email && formik.touched.email ? <div className="alert alert-danger">{formik.errors.email}</div> : ''}  " /**/"
 
 
 

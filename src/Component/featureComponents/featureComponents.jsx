@@ -38,7 +38,7 @@ export default function FeatureComponents() {
         );
     };
 
-    function Scene({ numStars = 100 }) {
+        function Scene({ numStars = 100 }) {
         const { gl, camera } = useThree();
         const { scrollYProgress } = useScroll();
         const yAngle = useTransform(scrollYProgress, [0, 1], [0.001, degreesToRadians(180)]);
@@ -91,7 +91,7 @@ export default function FeatureComponents() {
     }
 
     async function getProduct() {
-        let data = await axios.get('https://route-ecommerce-app.vercel.app/api/v1/products');
+        let data = await axios.get('https://ecommerce.routemisr.com/api/v1/products');
         setAllProducts(data.data.data);
     }
 

@@ -42,7 +42,7 @@ export default function Categoris() {
     const [categores, setCategores] = useState([]);
 
     async function Categores() {
-        let data = await axios.get('https://route-ecommerce-app.vercel.app/api/v1/categories')
+        let data = await axios.get('https://ecommerce.routemisr.com/api/v1/categories')
         console.log(data.data.data);
         setCategores(data.data.data)
     }

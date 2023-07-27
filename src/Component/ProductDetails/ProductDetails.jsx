@@ -50,7 +50,7 @@ export default function ProductDetails() {
     }
 
     async function supCategoru() {
-        let response = await axios.get(`https://route-ecommerce-app.vercel.app/api/v1/products/${id}`);
+        let response = await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`);
         let data = response.data.data;
         setSupCategores(data);
         console.log(supCategores);

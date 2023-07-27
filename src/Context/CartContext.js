@@ -54,7 +54,7 @@ export default function CartContextProvider(props) {
 
 
     function getAllCart() {
-        return axios.get('https://route-ecommerce-app.vercel.app/api/v1/cart',
+        return axios.get('https://ecommerce.routemisr.com/api/v1/cart',
             {
                 headers: {
                     token: localStorage.getItem("userToken")
@@ -68,7 +68,7 @@ export default function CartContextProvider(props) {
     function createCart(productId) {
         console.log(productId);
 
-        return axios.post('https://route-ecommerce-app.vercel.app/api/v1/cart', { productId: productId },
+        return axios.post('https://ecommerce.routemisr.com/api/v1/cart', { productId: productId },
             {
                 headers: {
                     token: localStorage.getItem('userToken')
@@ -84,7 +84,7 @@ export default function CartContextProvider(props) {
 
     function updateCart(id, count) {
 
-        return axios.put(`https://route-ecommerce-app.vercel.app/api/v1/cart/${id}`, { count },
+        return axios.put(`https://ecommerce.routemisr.com/api/v1/cart/${id}`, { count },
             {
                 headers: {
                     token: localStorage.getItem('userToken')
@@ -99,7 +99,7 @@ export default function CartContextProvider(props) {
 
     function removeCartData(id) {
 
-        return axios.delete(`https://route-ecommerce-app.vercel.app/api/v1/cart/${id}`,
+        return axios.delete(`https://ecommerce.routemisr.com/api/v1/cart/${id}`,
             {
                 headers: {
                     token: localStorage.getItem('userToken')
@@ -112,7 +112,7 @@ export default function CartContextProvider(props) {
 
     function clearCart(id) {
 
-        return axios.delete(`https://route-ecommerce-app.vercel.app/api/v1/cart`,
+        return axios.delete(`https://ecommerce.routemisr.com/api/v1/cart`,
             {
                 headers: {
                     token: localStorage.getItem('userToken')
@@ -123,7 +123,7 @@ export default function CartContextProvider(props) {
     }
 
     function generateOnlinePayment(cart, shippingAddress) {
-        return axios.post(`https://route-ecommerce-app.vercel.app/api/v1/orders/checkout-session/${cart}?url=http://localhost:3000`,
+        return axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cart}?url=http://localhost:3000`,
             { shippingAddress: shippingAddress },
             {
                 headers: {
